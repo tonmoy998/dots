@@ -151,7 +151,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+# bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 #         status_command i3status
 # }
 # custom
-exec_always --no-startup-id feh --bg-fill /home/tonmoy/Downloads/wp9618880-nothing-to-see-here-wallpapers.jpg
+# exec_always --no-startup-id feh --bg-fill /home/$USER/Downloads/peakpx.jpg
 exec_always --no-startup-id polybar 
 exec_always --no-startup-id pulseaudio -k
 exec_always --no-startup-id systemctl --user start pulseaudio.{socket,service}
@@ -196,8 +196,16 @@ bindsym $mod+d exec --no-startup-id ~/.config/polybar/forest/scripts/launcher.sh
 bindsym $mod+t exec --no-startup-id ~/.config/polybar/forest/scripts/style-switch.sh
 # bindsym $mod+x exec powermenu_t5
 # bindsym $mod+x exec "kitty powermenu_t5"
-bindsym $mod+x exec ~/.config/rofi/scripts/powermenu_t2
+bindsym $mod+x exec powermenu_t1 
 default_border pixel 1
 default_floating_border pixel 1
-exec i3-layouts
+
+# Screenshot entire screen
+# bindsym Print exec scrot ~/screenshot.png
+
+# Screenshot an area (useful with scrot's -s option)
+# bindsym Shift+Print exec scrot -s ~/screenshot.png
+# bindsym Print exec scrot -s /home/$USER/Pictures/screenshot.png
+bindsym Print exec scrot ~/Pictures/screenshot-%Y-%m-%d_%H-%M-%S.png -e 'xclip -selection clipboard -t image/png -i $f'
+exec --no-startup-id dunst
 
