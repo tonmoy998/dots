@@ -11,8 +11,8 @@ export PATH=$HOME/.local/bin:$PATH
 export PATH=/usr/local/share/npm/bin:$PATH
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="agnoster"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="agnoster"
+ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -135,10 +135,16 @@ alias yt='yt-dlp -f 22'
 alias lv="lvim"
 alias nv="nvide"
 alias phpserver="sudo php -S localhost:8080"
-alias neofetch="neofetch --chafa /home/tonmoy/Pictures/Gnu-linux.png"
 alias sda1="sudo mkdir -p /mnt/sda1 && sudo mount /dev/sda1 /mnt/sda1"
+alias sda2="sudo mkdir -p /mnt/sda2 && sudo mount /dev/sda2 /mnt/sda2"
+alias sda3="sudo mkdir -p /mnt/sda3 && sudo mount /dev/sda3 /mnt/sda3"
+alias sda4="sudo mkdir -p /mnt/sda4 && sudo mount /dev/sda4 /mnt/sda4"
+alias update="sudo apt update -y"
+alias upgrade="sudo apt upgrade -y"
+alias install="sudo apt install"
 # Edit .zshrc and add this line
 export PATH=$HOME/.config/rofi/scripts:$PATH
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
