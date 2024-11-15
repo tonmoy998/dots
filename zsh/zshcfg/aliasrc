@@ -1,0 +1,57 @@
+#!/bin/sh
+
+# Use neovim for vim if present.
+[ -x "$(command -v nvim)" ] && alias vim="nvim" vimdiff="nvim -d"
+
+# Verbosity and settings that you pretty much just always are going to want.
+alias \
+	cp="cp -iv" \
+	mv="mv -iv" \
+	rm="rm -vI" \
+	mkd="mkdir -pv" \
+	ffmpeg="ffmpeg -hide_banner"
+
+# Colorize commands when possible.
+#ls="ls -hN --color=auto --group-directories-first" \
+alias \
+	ls="exa" \
+	grep="grep --color=auto" \
+	diff="diff --color=auto" \
+	ccat="highlight --out-format=ansi"
+
+alias \
+	ka="killall" \
+	g="git" \
+	f="$FILE" \
+	e="$EDITOR" \
+	v="$EDITOR" \
+	xcp="xclip -selection clipboard"
+
+alias \
+	weath="less -S ${XDG_DATA_HOME:-$HOME/.local/share}/weatherreport" \
+    vm="/usr/bin/vim" \
+	dc="discord &>/dev/null & disown" \
+	tg="telegram-desktop &>/dev/null & disown"
+
+alias \
+	t="st &>/dev/null & disown" \
+    fix='echo -e "\033c"' \
+    gencpio="LC_ALL=c sort | cpio --quiet -R 0:0 -o -H newc" \
+    res="sudo kexec -l /boot/vmlinuz-linux --initrd=/boot/initramfs-linux.img --reuse-cmdline && sudo systemctl kexec"
+
+# Bare git dot config
+alias \
+	dots=/usr/bin/git\ --git-dir=$HOME/.cfg/\ --work-tree=$HOME \
+    dpp='dots push private priv' \
+    dmp='dots push origin master' \
+    dcp='sudo chattr -i ~/.gitconfig; sudo chattr -i ~/.config/ssh; dots checkout priv' \
+    dcm='sudo chattr +i ~/.gitconfig; sudo chattr +i ~/.config/ssh; dots checkout master' \
+	glfsforcerefs="git push origin --force 'refs/heads/*'" \
+    gpl3license="wget https://www.gnu.org/licenses/gpl-3.0.md -o LICENSE.md" \
+    zcheat="zathura $ZDOTDIR/zshcheat.pdf"
+
+# Python aliases
+alias \
+	pipupdateall="pip list -o | cut -f1 -d' ' | tr " " "\n" | awk '{if(NR>=3)print}' | cut -d' ' -f1 | xargs -n1 pip install -U" \
+	pipforce="pip uninstall --break-system-packages" \
+	pipupgrade="pip install --upgrade"
